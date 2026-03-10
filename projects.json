@@ -42,13 +42,13 @@
         "/portfolio/assets/images/adomcek/adomcek_06.jpg"
       ],
       "wireframes": [
+        "/portfolio/assets/images/adomcek/wireframes/wireframe_13.jpg",
         "/portfolio/assets/images/adomcek/wireframes/wireframe_01.jpg",
         "/portfolio/assets/images/adomcek/wireframes/wireframe_02.jpg",
         "/portfolio/assets/images/adomcek/wireframes/wireframe_05.jpg",
         "/portfolio/assets/images/adomcek/wireframes/wireframe_06.jpg",
         "/portfolio/assets/images/adomcek/wireframes/wireframe_10.jpg",
-        "/portfolio/assets/images/adomcek/wireframes/wireframe_12.jpg",
-        "/portfolio/assets/images/adomcek/wireframes/wireframe_13.jpg"
+        "/portfolio/assets/images/adomcek/wireframes/wireframe_12.jpg"
       ],
       "title": { "cz": "Adomček", "en": "Adomček" },
       "desc": { "cz": "Architektonická vizualizace rodinného domu. Exteriér, interiér, wireframy.", "en": "Architectural visualization of a family house. Exterior, interior, wireframes." },
