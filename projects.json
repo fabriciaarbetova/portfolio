@@ -5,7 +5,7 @@
       "category": "simulation",
       "type": "video",
       "src": "/portfolio/assets/videos/svicka.mp4",
-      "title": { "cz": "Simulace svíčky", "en": "Candle Simulation" },
+      "title": { "cz": "Svíčka", "en": "Candle" },
       "desc": { "cz": "Simulace ohně a vosku v Houdini.", "en": "Fire and wax simulation in Houdini." },
       "year": 2024
     },
@@ -14,7 +14,7 @@
       "category": "simulation",
       "type": "video",
       "src": "/portfolio/assets/videos/hydrant.mp4",
-      "title": { "cz": "Simulace hydrantu", "en": "Hydrant Simulation" },
+      "title": { "cz": "Hydrant", "en": "Hydrant" },
       "desc": { "cz": "Zkouška simulace vody a tlaku.", "en": "Water and pressure simulation test." },
       "year": 2024
     },
@@ -73,7 +73,7 @@
       "category": "film",
       "type": "video",
       "src": "/portfolio/assets/videos/heroevil.mp4",
-      "title": { "cz": "Hero vs. Evil 1.3", "en": "Hero vs. Evil 1.3" },
+      "title": { "cz": "HeroEvil", "en": "HeroEvil" },
       "desc": { "cz": "Ročníkový film. Finální render.", "en": "Annual film project. Final render." },
       "year": 2024
     },
@@ -82,7 +82,7 @@
       "category": "film",
       "type": "video",
       "src": "/portfolio/assets/videos/animatic.mp4",
-      "title": { "cz": "Animatic", "en": "Animatic" },
+      "title": { "cz": "HeroEvil Animatic", "en": "HeroEvil Animatic" },
       "desc": { "cz": "Animatic k ročníkovému filmu.", "en": "Animatic for the annual film project." },
       "year": 2024
     }
