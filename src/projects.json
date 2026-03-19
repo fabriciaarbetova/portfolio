@@ -1,0 +1,99 @@
+{
+  "simulations": [
+    {
+      "id": "svicka",
+      "category": "simulation",
+      "type": "video",
+      "src": "/portfolio/assets/videos/svicka.mp4",
+      "title": { "cz": "Svíčka", "en": "Candle" },
+      "desc": { "cz": "Simulace ohně a vosku v Houdini.", "en": "Fire and wax simulation in Houdini." },
+      "year": 2024
+    },
+    {
+      "id": "hydrant",
+      "category": "simulation",
+      "type": "video",
+      "src": "/portfolio/assets/videos/hydrant.mp4",
+      "title": { "cz": "Hydrant", "en": "Hydrant" },
+      "desc": { "cz": "Zkouška simulace vody a tlaku.", "en": "Water and pressure simulation test." },
+      "year": 2024
+    },
+    {
+      "id": "lavalamp",
+      "category": "simulation",
+      "type": "video",
+      "src": "/portfolio/assets/videos/lavalamp.mp4",
+      "title": { "cz": "Lávová lampa", "en": "Lava Lamp" },
+      "desc": { "cz": "Simulace tekutin a hustoty.", "en": "Fluid and density simulation." },
+      "year": 2024
+    }
+  ],
+  "archviz": [
+    {
+      "id": "adomcek",
+      "category": "archviz",
+      "type": "gallery",
+      "images": [
+        "/portfolio/assets/images/adomcek/adomcek_01.jpg",
+        "/portfolio/assets/images/adomcek/adomcek_05.jpg",
+        "/portfolio/assets/images/adomcek/adomcek_02.jpg",
+        "/portfolio/assets/images/adomcek/adomcek_03.jpg",
+        "/portfolio/assets/images/adomcek/adomcek_04.jpg",
+        "/portfolio/assets/images/adomcek/adomcek_06.jpg"
+      ],
+      "wireframes": [
+        "/portfolio/assets/images/adomcek/wireframes/wireframe_13.jpg",
+        "/portfolio/assets/images/adomcek/wireframes/wireframe_01.jpg",
+        "/portfolio/assets/images/adomcek/wireframes/wireframe_02.jpg",
+        "/portfolio/assets/images/adomcek/wireframes/wireframe_05.jpg",
+        "/portfolio/assets/images/adomcek/wireframes/wireframe_06.jpg",
+        "/portfolio/assets/images/adomcek/wireframes/wireframe_10.jpg",
+        "/portfolio/assets/images/adomcek/wireframes/wireframe_12.jpg"
+      ],
+      "title": { "cz": "Adomček", "en": "A-Frame House" },
+      "desc": { "cz": "Architektonická vizualizace rodinného domu. Exteriér, interiér, wireframy.", "en": "Architectural visualization of a family house. Exterior, interior, wireframes." },
+      "year": 2024
+    },
+    {
+      "id": "maringotka",
+      "category": "archviz",
+      "type": "gallery",
+      "images": [
+        "/portfolio/assets/images/maringotka/maringotka_01.jpg",
+        "/portfolio/assets/images/maringotka/maringotka_02.jpg"
+      ],
+      "title": { "cz": "Maringotka", "en": "Caravan" },
+      "desc": { "cz": "Architektonická vizualizace obytného vozu.", "en": "Architectural visualization of a living caravan." },
+      "year": 2024
+    }
+  ],
+  "film": [
+    {
+      "id": "heroevil",
+      "category": "film",
+      "type": "video",
+      "src": "/portfolio/assets/videos/heroevil.mp4",
+      "title": { "cz": "HeroEvil", "en": "HeroEvil" },
+      "desc": { "cz": "Ročníkový film. Finální render.", "en": "Annual film project. Final render." },
+      "year": 2024
+    },
+    {
+      "id": "animatic",
+      "category": "film",
+      "type": "video",
+      "src": "/portfolio/assets/videos/animatic.mp4",
+      "title": { "cz": "HeroEvil Animatic", "en": "HeroEvil Animatic" },
+      "desc": { "cz": "Animatic k ročníkovému filmu.", "en": "Animatic for the annual film project." },
+      "year": 2024
+    },
+    {
+      "id": "theentrance",
+      "category": "film",
+      "type": "video",
+      "src": "/portfolio/assets/videos/theentrance.mp4",
+      "title": { "cz": "The Entrance", "en": "The Entrance" },
+      "desc": { "cz": "Cvičení z 1. ročníku.", "en": "1st year film exercise." },
+      "year": 2024
+    }
+  ]
+}
