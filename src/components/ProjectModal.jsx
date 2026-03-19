@@ -1,10 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLang } from '../context/LangContext';
 import GallerySlider from './GallerySlider';
 
 export default function ProjectModal({ project, onClose }) {
     const { t, lang } = useLang();
+    const [videoTab, setVideoTab] = useState('render');
+
+    useEffect(() => {
+        setVideoTab('render');
+    }, [project]);
 
     useEffect(() => {
         const handleKey = (e) => { if (e.key === 'Escape') onClose(); };
@@ -37,15 +42,34 @@ export default function ProjectModal({ project, onClose }) {
                     <button className="modal-close" onClick={onClose}>&#215;</button>
 
                     {project.type === 'video' && (
-                        <video
-                            className="modal-video"
-                            src={project.src}
-                            controls
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                        />
+                        <>
+                            {project.original && (
+                                <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
+                                    <button
+                                        className={`filter-btn ${videoTab === 'render' ? 'active' : ''}`}
+                                        onClick={() => setVideoTab('render')}
+                                    >
+                                        {t.render}
+                                    </button>
+                                    <button
+                                        className={`filter-btn ${videoTab === 'original' ? 'active' : ''}`}
+                                        onClick={() => setVideoTab('original')}
+                                    >
+                                        {t.original}
+                                    </button>
+                                </div>
+                            )}
+                            <video
+                                key={videoTab}
+                                className="modal-video"
+                                src={videoTab === 'original' && project.original ? project.original : project.src}
+                                controls
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                            />
+                        </>
                     )}
 
                     {project.type === 'gallery' && (

@@ -7,7 +7,7 @@
       "src": "/portfolio/assets/videos/svicka.mp4",
       "title": { "cz": "Svíčka", "en": "Candle" },
       "desc": { "cz": "Simulace ohně a vosku v Houdini.", "en": "Fire and wax simulation in Houdini." },
-      "year": 2024
+      "year": 2025
     },
     {
       "id": "hydrant",
@@ -16,7 +16,7 @@
       "src": "/portfolio/assets/videos/hydrant.mp4",
       "title": { "cz": "Hydrant", "en": "Hydrant" },
       "desc": { "cz": "Zkouška simulace vody a tlaku.", "en": "Water and pressure simulation test." },
-      "year": 2024
+      "year": 2025
     },
     {
       "id": "lavalamp",
@@ -25,7 +25,7 @@
       "src": "/portfolio/assets/videos/lavalamp.mp4",
       "title": { "cz": "Lávová lampa", "en": "Lava Lamp" },
       "desc": { "cz": "Simulace tekutin a hustoty.", "en": "Fluid and density simulation." },
-      "year": 2024
+      "year": 2025
     }
   ],
   "archviz": [
@@ -52,19 +52,19 @@
       ],
       "title": { "cz": "Adomček", "en": "A-Frame House" },
       "desc": { "cz": "Architektonická vizualizace rodinného domu. Exteriér, interiér, wireframy.", "en": "Architectural visualization of a family house. Exterior, interior, wireframes." },
-      "year": 2024
+      "year": 2025
     },
     {
       "id": "maringotka",
       "category": "archviz",
       "type": "gallery",
       "images": [
-        "/portfolio/assets/images/maringotka/maringotka_01.jpg",
-        "/portfolio/assets/images/maringotka/maringotka_02.jpg"
+        "/portfolio/assets/images/maringotka/maringotka_02.jpg",
+        "/portfolio/assets/images/maringotka/maringotka_01.jpg"
       ],
       "title": { "cz": "Maringotka", "en": "Caravan" },
       "desc": { "cz": "Architektonická vizualizace obytného vozu.", "en": "Architectural visualization of a living caravan." },
-      "year": 2024
+      "year": 2025
     }
   ],
   "film": [
@@ -75,7 +75,7 @@
       "src": "/portfolio/assets/videos/heroevil.mp4",
       "title": { "cz": "HeroEvil", "en": "HeroEvil" },
       "desc": { "cz": "Ročníkový film. Finální render.", "en": "Annual film project. Final render." },
-      "year": 2024
+      "year": 2025
     },
     {
       "id": "animatic",
@@ -84,7 +84,7 @@
       "src": "/portfolio/assets/videos/animatic.mp4",
       "title": { "cz": "HeroEvil Animatic", "en": "HeroEvil Animatic" },
       "desc": { "cz": "Animatic k ročníkovému filmu.", "en": "Animatic for the annual film project." },
-      "year": 2024
+      "year": 2025
     },
     {
       "id": "theentrance",
@@ -93,6 +93,27 @@
       "src": "/portfolio/assets/videos/theentrance.mp4",
       "title": { "cz": "The Entrance", "en": "The Entrance" },
       "desc": { "cz": "Cvičení z 1. ročníku.", "en": "1st year film exercise." },
+      "year": 2024
+    }
+  ],
+  "motion": [
+    {
+      "id": "arthur",
+      "category": "motion",
+      "type": "video",
+      "src": "/portfolio/assets/videos/arthur.mp4",
+      "original": "/portfolio/assets/videos/arthur_original.mp4",
+      "title": { "cz": "Město v lese", "en": "City in the Forest" },
+      "desc": { "cz": "VFX — wire removal, rotoskopie, matte painting, kompozice.", "en": "VFX — wire removal, rotoscoping, matte painting, compositing." },
+      "year": 2024
+    },
+    {
+      "id": "waitomo",
+      "category": "motion",
+      "type": "video",
+      "src": "/portfolio/assets/videos/waitomo.mp4",
+      "title": { "cz": "Waitomo", "en": "Waitomo" },
+      "desc": { "cz": "Animované logo inspirované bioluminiscenčními jeskyněmi Waitomo na Novém Zélandu.", "en": "Logo animation inspired by the bioluminescent Waitomo Caves in New Zealand." },
       "year": 2024
     }
   ]

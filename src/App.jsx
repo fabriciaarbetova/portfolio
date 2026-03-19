@@ -5,6 +5,7 @@ import Nav from './components/Nav';
 import HeroCanvas from './components/HeroCanvas';
 import RotatingText from './components/RotatingText';
 import ProjectModal from './components/ProjectModal';
+import projectsData from './projects.json';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -85,29 +86,20 @@ function ProjectCard({ project, onClick, lang, t, index }) {
 export default function App() {
   const { t, lang } = useLang();
   const [loaded, setLoaded] = useState(false);
-  const [projects, setProjects] = useState([]);
   const [filter, setFilter] = useState('all');
   const [selected, setSelected] = useState(null);
 
-  useEffect(() => {
-    fetch('/portfolio/projects.json')
-      .then(r => r.json())
-      .then(data => {
-        const all = [
-          ...data.simulations,
-          ...data.archviz,
-          ...data.film,
-        ];
-        setProjects(all);
-      });
-  }, []);
+  const projects = [
+    ...projectsData.simulations,
+    ...projectsData.archviz,
+    ...projectsData.film,
+    ...projectsData.motion,
+  ];
 
   const filtered = filter === 'all'
     ? projects
     : projects.filter(p => p.category === filter);
 
-  const aboutRef = useRef(null);
-  const aboutInView = useInView(aboutRef);
 
   return (
     <>
@@ -172,7 +164,7 @@ export default function App() {
             <div className="projects-header">
               <h2 className="section-title">{t.projects.title}</h2>
               <div className="category-filters">
-                {['all', 'simulation', 'archviz', 'film'].map(cat => (
+                {['all', 'simulation', 'archviz', 'film', 'motion'].map(cat => (
                   <button
                     key={cat}
                     className={`filter-btn ${filter === cat ? 'active' : ''}`}
@@ -197,27 +189,28 @@ export default function App() {
             </div>
           </section>
 
-          {/* ABOUT */}
-          <section className="about-section" id="about" ref={aboutRef}>
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              animate={aboutInView ? 'visible' : 'hidden'}
-            >
-              <div className="about-label">{t.about.label}</div>
-              <p className="about-text">{t.about.text}</p>
-            </motion.div>
+          {/* CONTACT */}
+          <section className="about-section" id="about">
             <motion.div
               className="about-contact"
               id="contact"
               variants={fadeUp}
               initial="hidden"
-              animate={aboutInView ? 'visible' : 'hidden'}
-              custom={1}
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
             >
               <div className="about-label">{t.contact.label}</div>
-              <a href="mailto:fabricia.arbetova@example.com" className="contact-link">
-                fabricia.arbetova@example.com
+              <a href="mailto:fabricia.arbetova@gmail.com" className="contact-link">
+                fabricia.arbetova@gmail.com
+              </a>
+              <a href="tel:+420732845872" className="contact-link">
+                +420 732 845 872
+              </a>
+              <a href="https://www.linkedin.com/in/fabricia-arbetov%C3%A1-0874382b5/" className="contact-link" target="_blank" rel="noopener noreferrer">
+                LinkedIn
+              </a>
+              <a href="https://www.instagram.com/fabricia_arbetova/" className="contact-link" target="_blank" rel="noopener noreferrer">
+                Instagram
               </a>
             </motion.div>
           </section>

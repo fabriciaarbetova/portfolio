@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLang } from '../context/LangContext';
 
@@ -12,6 +12,15 @@ export default function GallerySlider({ images, wireframes }) {
 
     const prev = () => setIndex(i => (i - 1 + total) % total);
     const next = () => setIndex(i => (i + 1) % total);
+
+    useEffect(() => {
+        const handleKey = (e) => {
+            if (e.key === 'ArrowLeft') prev();
+            if (e.key === 'ArrowRight') next();
+        };
+        window.addEventListener('keydown', handleKey);
+        return () => window.removeEventListener('keydown', handleKey);
+    }, [total, index]);
 
     return (
         <div>

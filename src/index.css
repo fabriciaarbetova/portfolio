@@ -262,10 +262,17 @@ nav::before {
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .project-card:hover .project-card-media {
-  transform: scale(1.04);
+  transform: scale(1.04) translateZ(0);
+}
+
+/* Videos don't scale on hover — avoids jitter */
+.project-card:hover video.project-card-media {
+  transform: scale(1) translateZ(0);
 }
 
 .project-card-overlay {
@@ -439,10 +446,9 @@ nav::before {
 /* ===== ABOUT ===== */
 .about-section {
   padding: 120px 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
   border-top: 1px solid var(--border);
 }
 
