@@ -100,6 +100,13 @@ export default function App() {
     ? projects
     : projects.filter(p => p.category === filter);
 
+  const navigateProject = (delta) => {
+    const idx = filtered.findIndex(p => p.id === selected?.id);
+    if (idx === -1) return;
+    const next = (idx + delta + filtered.length) % filtered.length;
+    setSelected(filtered[next]);
+  };
+
 
   return (
     <>
@@ -122,7 +129,7 @@ export default function App() {
                 animate="visible"
                 custom={0}
               >
-                Fabricia<br />Arbetova
+                Fabricia<br />{lang === 'cz' ? 'Arbetová' : 'Arbetova'}
               </motion.h1>
               <motion.p
                 className="hero-role"
@@ -139,6 +146,8 @@ export default function App() {
                 initial="hidden"
                 animate="visible"
                 custom={2}
+                onClick={() => document.getElementById('showreel')?.scrollIntoView({ behavior: 'smooth' })}
+                style={{ cursor: 'pointer' }}
               >
                 {t.hero.scroll}
               </motion.div>
@@ -147,12 +156,13 @@ export default function App() {
           </section>
 
           {/* SHOWREEL */}
-          <section className="showreel-section">
+          <section className="showreel-section" id="showreel">
             <div className="section-label">{t.showreel}</div>
             <video
               className="showreel-video"
               src="/portfolio/assets/videos/showreel.mp4"
               controls
+              autoPlay
               muted
               loop
               playsInline
@@ -225,9 +235,10 @@ export default function App() {
           <AnimatePresence>
             {selected && (
               <ProjectModal
-                key={selected.id}
                 project={selected}
                 onClose={() => setSelected(null)}
+                onPrevProject={() => navigateProject(-1)}
+                onNextProject={() => navigateProject(1)}
               />
             )}
           </AnimatePresence>

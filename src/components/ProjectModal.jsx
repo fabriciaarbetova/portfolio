@@ -3,25 +3,69 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLang } from '../context/LangContext';
 import GallerySlider from './GallerySlider';
 
-export default function ProjectModal({ project, onClose }) {
+export default function ProjectModal({ project, onClose, onPrevProject, onNextProject }) {
     const { t, lang } = useLang();
-    const [videoTab, setVideoTab] = useState('render');
+    // For gallery: globalIndex spans renders then wireframes
+    const [galleryIndex, setGalleryIndex] = useState(0);
+    // For video-with-original: 0 = render, 1 = original
+    const [videoTab, setVideoTab] = useState(0);
 
+    // Reset position when project changes
     useEffect(() => {
-        setVideoTab('render');
-    }, [project]);
+        setGalleryIndex(0);
+        setVideoTab(0);
+    }, [project?.id]);
 
+    // Centralised keyboard handler
     useEffect(() => {
-        const handleKey = (e) => { if (e.key === 'Escape') onClose(); };
-        document.addEventListener('keydown', handleKey);
+        const handleKey = (e) => {
+            if (e.key === 'Escape') { onClose(); return; }
+
+            if (project.type === 'gallery') {
+                const renders = project.images || [];
+                const wires = project.wireframes || [];
+                const total = renders.length + wires.length;
+                if (e.key === 'ArrowRight') {
+                    if (galleryIndex < total - 1) setGalleryIndex(i => i + 1);
+                    else onNextProject();
+                }
+                if (e.key === 'ArrowLeft') {
+                    if (galleryIndex > 0) setGalleryIndex(i => i - 1);
+                    else onPrevProject();
+                }
+            }
+
+            if (project.type === 'video') {
+                const slots = project.original ? 2 : 1;
+                if (e.key === 'ArrowRight') {
+                    if (videoTab < slots - 1) setVideoTab(i => i + 1);
+                    else onNextProject();
+                }
+                if (e.key === 'ArrowLeft') {
+                    if (videoTab > 0) setVideoTab(i => i - 1);
+                    else onPrevProject();
+                }
+            }
+        };
+        window.addEventListener('keydown', handleKey);
         document.body.style.overflow = 'hidden';
         return () => {
-            document.removeEventListener('keydown', handleKey);
+            window.removeEventListener('keydown', handleKey);
             document.body.style.overflow = '';
         };
-    }, [onClose]);
+    }, [onClose, onPrevProject, onNextProject, project, galleryIndex, videoTab]);
 
     if (!project) return null;
+
+    const handleGalleryNavigate = (delta) => {
+        if (delta === 'prev-project') { onPrevProject(); return; }
+        if (delta === 'next-project') { onNextProject(); return; }
+        const renders = project.images || [];
+        const wires = project.wireframes || [];
+        const total = renders.length + wires.length;
+        const next = galleryIndex + delta;
+        if (next >= 0 && next < total) setGalleryIndex(next);
+    };
 
     return (
         <AnimatePresence>
@@ -46,23 +90,23 @@ export default function ProjectModal({ project, onClose }) {
                             {project.original && (
                                 <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
                                     <button
-                                        className={`filter-btn ${videoTab === 'render' ? 'active' : ''}`}
-                                        onClick={() => setVideoTab('render')}
+                                        className={`filter-btn ${videoTab === 0 ? 'active' : ''}`}
+                                        onClick={() => setVideoTab(0)}
                                     >
                                         {t.render}
                                     </button>
                                     <button
-                                        className={`filter-btn ${videoTab === 'original' ? 'active' : ''}`}
-                                        onClick={() => setVideoTab('original')}
+                                        className={`filter-btn ${videoTab === 1 ? 'active' : ''}`}
+                                        onClick={() => setVideoTab(1)}
                                     >
                                         {t.original}
                                     </button>
                                 </div>
                             )}
                             <video
-                                key={videoTab}
+                                key={`${project.id}-${videoTab}`}
                                 className="modal-video"
-                                src={videoTab === 'original' && project.original ? project.original : project.src}
+                                src={videoTab === 1 && project.original ? project.original : project.src}
                                 controls
                                 autoPlay
                                 muted
@@ -73,7 +117,13 @@ export default function ProjectModal({ project, onClose }) {
                     )}
 
                     {project.type === 'gallery' && (
-                        <GallerySlider images={project.images} wireframes={project.wireframes} />
+                        <GallerySlider
+                            projectId={project.id}
+                            images={project.images}
+                            wireframes={project.wireframes}
+                            globalIndex={galleryIndex}
+                            onNavigate={handleGalleryNavigate}
+                        />
                     )}
 
                     <div className="modal-meta">

@@ -19,9 +19,6 @@ export default function Nav() {
                 <button className="nav-link" style={{ background: 'none', border: 'none', cursor: 'pointer' }} onClick={() => scrollTo('projects')}>
                     {t.nav.work}
                 </button>
-                <button className="nav-link" style={{ background: 'none', border: 'none', cursor: 'pointer' }} onClick={() => scrollTo('about')}>
-                    {t.nav.about}
-                </button>
                 <button className="nav-link" style={{ background: 'none', border: 'none', cursor: 'pointer' }} onClick={() => scrollTo('contact')}>
                     {t.nav.contact}
                 </button>
