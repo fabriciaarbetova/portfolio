@@ -24,13 +24,17 @@ export default function GallerySlider({ projectId, images, wireframes, globalInd
                 const nextSrc = globalIndex + 1 < renders.length 
                     ? renders[globalIndex + 1] 
                     : wires[globalIndex + 1 - renders.length];
-                new Image().src = nextSrc;
+                if (!nextSrc.match(/\.(mp4|webm)$/i)) {
+                    new Image().src = nextSrc;
+                }
             }
             if (globalIndex > 0) {
                 const prevSrc = globalIndex - 1 < renders.length 
                     ? renders[globalIndex - 1] 
                     : wires[globalIndex - 1 - renders.length];
-                new Image().src = prevSrc;
+                if (!prevSrc.match(/\.(mp4|webm)$/i)) {
+                    new Image().src = prevSrc;
+                }
             }
         };
         preloadNext();
@@ -74,7 +78,19 @@ export default function GallerySlider({ projectId, images, wireframes, globalInd
                         transition={{ duration: 0.3 }}
                         className="gallery-slide"
                     >
-                        <img src={current[localIndex]} alt="" />
+                        {current[localIndex].match(/\.(mp4|webm)$/i) ? (
+                            <video
+                                src={current[localIndex]}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                controls
+                                style={{ width: '100%', aspectRatio: '16/9', objectFit: 'cover', display: 'block', background: '#111' }}
+                            />
+                        ) : (
+                            <img src={current[localIndex]} alt="" />
+                        )}
                     </motion.div>
                 </AnimatePresence>
             </div>

@@ -1,6 +1,24 @@
 {
   "simulations": [
     {
+      "id": "vlny_na_brehu",
+      "type": "gallery",
+      "category": "simulation",
+      "title": {
+        "cz": "Vlny na břehu",
+        "en": "Waves on Shore"
+      },
+      "desc": {
+        "cz": "Simulace vlnění a srážky vody na břehu. V galerii si můžete prohlédnout jak finální vyrenderovaný frame, tak i samotný playblast animace.",
+        "en": "Simulation of waves crashing on the shore. The gallery features both the final rendered frame and the raw playblast animation."
+      },
+      "year": "2025",
+      "images": [
+        "/portfolio/assets/images/dalsi/15_voda na brehu.jpg",
+        "/portfolio/assets/videos/vlny_playblast.mp4"
+      ]
+    },
+    {
       "id": "svicka",
       "category": "simulation",
       "type": "video",
