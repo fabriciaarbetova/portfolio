@@ -46,7 +46,7 @@ export default function RotatingText({ text = 'SCROLL DOWN · EXPLORE · ', radi
                             transform={`rotate(${i * angleStep}, ${x}, ${y})`}
                             style={{
                                 fontSize: '8px',
-                                fill: 'rgba(240,240,240,0.35)',
+                                fill: 'rgba(240,240,240,0.70)',
                                 fontFamily: 'Inter, sans-serif',
                                 letterSpacing: '0.1em',
                             }}

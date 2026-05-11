@@ -159,7 +159,7 @@ export default function App() {
                 {t.hero.scroll}
               </motion.div>
             </div>
-            <RotatingText text="FABRICIA ARBETOVA · 3D ARTIST · " />
+            <RotatingText text="FABRICIA ARBETOVA · 3D ARTIST · VFX · " />
           </section>
 
           {/* SHOWREEL */}

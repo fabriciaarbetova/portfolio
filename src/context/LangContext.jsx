@@ -10,7 +10,7 @@ export const translations = {
             contact: 'Kontakt',
         },
         hero: {
-            role: '3D Artist — Simulace — Architektonické vizualizace',
+            role: '3D Artist — VFX — Simulace — Architektonické vizualizace',
             scroll: 'Posunout',
         },
         showreel: 'Showreel 2025',
@@ -48,7 +48,7 @@ export const translations = {
             contact: 'Contact',
         },
         hero: {
-            role: '3D Artist — Simulation — Architectural Visualization',
+            role: '3D Artist — VFX — Simulation — Architectural Visualization',
             scroll: 'Scroll',
         },
         showreel: 'Showreel 2025',
