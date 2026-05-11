@@ -553,6 +553,7 @@ footer {
   right: 80px;
   width: 120px;
   height: 120px;
+  z-index: 2;
 }
 
 /* ===== LOADER ===== */
