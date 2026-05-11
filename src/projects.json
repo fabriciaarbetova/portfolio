@@ -110,7 +110,7 @@
       "id": "arthur",
       "category": "motion",
       "type": "video",
-      "src": "/portfolio/assets/videos/arthur.mp4",
+      "src": "/portfolio/assets/videos/arthur_v2.mp4",
       "original": "/portfolio/assets/videos/arthur_original.mp4",
       "title": { "cz": "Město v lese", "en": "City in the Forest" },
       "desc": { "cz": "VFX - wire removal, rotoskopie, matte painting, kompozice", "en": "VFX - wire removal, rotoscoping, matte painting, compositing" },

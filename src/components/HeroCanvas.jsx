@@ -21,14 +21,17 @@ export default function HeroCanvas() {
         mount.appendChild(renderer.domElement);
 
         // Geometry: abstract fluid-like mesh
-        const geometry = new THREE.IcosahedronGeometry(2, 8);
+        const geometry = new THREE.IcosahedronGeometry(2, 10);
         const posAttr = geometry.attributes.position;
         const originalPos = new Float32Array(posAttr.array);
 
         const material = new THREE.MeshStandardMaterial({
-            color: 0x1a1a1a,
-            metalness: 0.9,
-            roughness: 0.15,
+            color: 0x001a40,
+            metalness: 0.95,
+            roughness: 0.08,
+            transparent: true,
+            opacity: 0.35,
+            side: THREE.DoubleSide,
             wireframe: false,
         });
 
@@ -37,25 +40,29 @@ export default function HeroCanvas() {
 
         // Wireframe overlay
         const wireMat = new THREE.MeshBasicMaterial({
-            color: 0xc8b89a,
+            color: 0x4a8fac,
             wireframe: true,
             transparent: true,
-            opacity: 0.06,
+            opacity: 0.08,
         });
         const wireMesh = new THREE.Mesh(geometry, wireMat);
         scene.add(wireMesh);
 
         // Lights
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
         scene.add(ambientLight);
 
-        const pointLight1 = new THREE.PointLight(0xc8b89a, 2, 20);
-        pointLight1.position.set(4, 4, 4);
+        const pointLight1 = new THREE.PointLight(0x00c3ff, 15, 30);
+        pointLight1.position.set(5, 5, 5);
         scene.add(pointLight1);
 
-        const pointLight2 = new THREE.PointLight(0x4a6fa5, 1.5, 20);
-        pointLight2.position.set(-4, -2, 2);
+        const pointLight2 = new THREE.PointLight(0x0055ff, 12, 30);
+        pointLight2.position.set(-5, -2, 4);
         scene.add(pointLight2);
+
+        const pointLight3 = new THREE.PointLight(0xffffff, 6, 20);
+        pointLight3.position.set(0, -5, -4);
+        scene.add(pointLight3);
 
         // Mouse
         let mouseX = 0;
@@ -96,10 +103,21 @@ export default function HeroCanvas() {
             posAttr.needsUpdate = true;
             geometry.computeVertexNormals();
 
-            // Rotation
+            // Rotation (reverted to original subtle movement)
             mesh.rotation.x += (mouseY * 0.3 - mesh.rotation.x) * 0.04;
             mesh.rotation.y += (mouseX * 0.3 - mesh.rotation.y) * 0.04;
             mesh.rotation.y += 0.002;
+            
+            // Position pull (floats slightly towards the mouse)
+            mesh.position.x += (mouseX * 0.6 - mesh.position.x) * 0.05;
+            mesh.position.y += (mouseY * 0.6 - mesh.position.y) * 0.05;
+
+            // Optional subtle scale stretch based on movement
+            mesh.scale.x = 1 + Math.abs(mouseX) * 0.1;
+            mesh.scale.y = 1 + Math.abs(mouseY) * 0.1;
+
+            wireMesh.position.copy(mesh.position);
+            wireMesh.scale.copy(mesh.scale);
             wireMesh.rotation.copy(mesh.rotation);
 
             renderer.render(scene, camera);
