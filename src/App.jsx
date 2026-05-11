@@ -121,7 +121,7 @@ export default function App() {
           <section className="hero">
             <video
               className="hero-bg-video"
-              src="/portfolio/assets/videos/hero_bg.webm?v=2"
+              src="/portfolio/assets/videos/hero_bg.webm?v=3"
               autoPlay
               loop
               muted
