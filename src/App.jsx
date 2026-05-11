@@ -49,7 +49,7 @@ function useInView(ref) {
 function ProjectCard({ project, onClick, lang, t, index }) {
   const ref = useRef(null);
   const inView = useInView(ref);
-  const thumb = project.type === 'video' ? project.src : project.images?.[0];
+  const thumb = project.type === 'video' ? (project.mini || project.src) : project.images?.[0];
 
   return (
     <motion.div

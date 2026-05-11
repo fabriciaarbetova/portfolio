@@ -5,36 +5,64 @@
       "category": "simulation",
       "type": "video",
       "src": "/portfolio/assets/videos/svicka.mp4",
-      "title": { "cz": "Svíčka", "en": "Candle" },
-      "desc": { "cz": "Simulace svíčky", "en": "Candle simulation" },
-      "year": 2025
+      "title": {
+        "cz": "Svíčka",
+        "en": "Candle"
+      },
+      "desc": {
+        "cz": "Simulace svíčky",
+        "en": "Candle simulation"
+      },
+      "year": 2025,
+      "mini": "/portfolio/assets/videos/minis_nahledy/svicka.mp4"
     },
     {
       "id": "hydrant",
       "category": "simulation",
       "type": "video",
       "src": "/portfolio/assets/videos/hydrant.mp4",
-      "title": { "cz": "Hydrant", "en": "Hydrant" },
-      "desc": { "cz": "Playblast - simulace natlakované vody v hydrantu", "en": "Playblast - simulation of pressurized water from a fire hydrant" },
-      "year": 2025
+      "title": {
+        "cz": "Hydrant",
+        "en": "Hydrant"
+      },
+      "desc": {
+        "cz": "Playblast - simulace natlakované vody v hydrantu",
+        "en": "Playblast - simulation of pressurized water from a fire hydrant"
+      },
+      "year": 2025,
+      "mini": "/portfolio/assets/videos/minis_nahledy/hydrant.mp4"
     },
     {
       "id": "lavalamp",
       "category": "simulation",
       "type": "video",
       "src": "/portfolio/assets/videos/lavalamp.mp4",
-      "title": { "cz": "Lávová lampa", "en": "Lava Lamp" },
-      "desc": { "cz": "Playblast - napodobení fyzikálního jevu lávové lampy", "en": "Playblast - imitating the physical phenomenon of a lava lamp" },
-      "year": 2025
+      "title": {
+        "cz": "Lávová lampa",
+        "en": "Lava Lamp"
+      },
+      "desc": {
+        "cz": "Playblast - napodobení fyzikálního jevu lávové lampy",
+        "en": "Playblast - imitating the physical phenomenon of a lava lamp"
+      },
+      "year": 2025,
+      "mini": "/portfolio/assets/videos/minis_nahledy/lavalamp.mp4"
     },
     {
       "id": "vyvolavanidemonu",
       "category": "simulation",
       "type": "video",
       "src": "/portfolio/assets/videos/vyvolavanidemonu_v2.mp4",
-      "title": { "cz": "Vyvolávání démonů", "en": "Summoning Demons" },
-      "desc": { "cz": "Playblast - simulace kouře", "en": "Playblast - smoke simulation" },
-      "year": 2025
+      "title": {
+        "cz": "Vyvolávání démonů",
+        "en": "Summoning Demons"
+      },
+      "desc": {
+        "cz": "Playblast - simulace kouře",
+        "en": "Playblast - smoke simulation"
+      },
+      "year": 2025,
+      "mini": "/portfolio/assets/videos/minis_nahledy/vyvolavanidemonu_v2.mp4"
     }
   ],
   "archviz": [
@@ -59,8 +87,14 @@
         "/portfolio/assets/images/adomcek/wireframes/wireframe_10.jpg",
         "/portfolio/assets/images/adomcek/wireframes/wireframe_12.jpg"
       ],
-      "title": { "cz": "Adomček", "en": "A-Frame House" },
-      "desc": { "cz": "Architektonická vizualizace - exteriér, interiér, wireframy", "en": "Architectural visualization - exterior, interior, wireframes" },
+      "title": {
+        "cz": "Adomček",
+        "en": "A-Frame House"
+      },
+      "desc": {
+        "cz": "Architektonická vizualizace - exteriér, interiér, wireframy",
+        "en": "Architectural visualization - exterior, interior, wireframes"
+      },
       "year": 2025
     },
     {
@@ -71,8 +105,14 @@
         "/portfolio/assets/images/maringotka/maringotka_02.jpg",
         "/portfolio/assets/images/maringotka/maringotka_01.jpg"
       ],
-      "title": { "cz": "Maringotka", "en": "Caravan" },
-      "desc": { "cz": "Exteriérní architektonická vizualizace maringotky", "en": "Exterior architectural visualization of a caravan" },
+      "title": {
+        "cz": "Maringotka",
+        "en": "Caravan"
+      },
+      "desc": {
+        "cz": "Exteriérní architektonická vizualizace maringotky",
+        "en": "Exterior architectural visualization of a caravan"
+      },
       "year": 2025
     }
   ],
@@ -82,27 +122,48 @@
       "category": "film",
       "type": "video",
       "src": "/portfolio/assets/videos/heroevil.mp4",
-      "title": { "cz": "HeroEvil", "en": "HeroEvil" },
-      "desc": { "cz": "Ročníkový film - finální render", "en": "Annual film project - final render" },
-      "year": 2025
+      "title": {
+        "cz": "HeroEvil",
+        "en": "HeroEvil"
+      },
+      "desc": {
+        "cz": "Ročníkový film - finální render",
+        "en": "Annual film project - final render"
+      },
+      "year": 2025,
+      "mini": "/portfolio/assets/videos/minis_nahledy/heroevil.mp4"
     },
     {
       "id": "animatic",
       "category": "film",
       "type": "video",
       "src": "/portfolio/assets/videos/animatic.mp4",
-      "title": { "cz": "HeroEvil Animatic", "en": "HeroEvil Animatic" },
-      "desc": { "cz": "Animatic k ročníkovému filmu", "en": "Animatic for the annual film project" },
-      "year": 2025
+      "title": {
+        "cz": "HeroEvil Animatic",
+        "en": "HeroEvil Animatic"
+      },
+      "desc": {
+        "cz": "Animatic k ročníkovému filmu",
+        "en": "Animatic for the annual film project"
+      },
+      "year": 2025,
+      "mini": "/portfolio/assets/videos/minis_nahledy/animatic.mp4"
     },
     {
       "id": "theentrance",
       "category": "film",
       "type": "video",
       "src": "/portfolio/assets/videos/theentrance.mp4",
-      "title": { "cz": "The Entrance", "en": "The Entrance" },
-      "desc": { "cz": "Cvičení 1. ročníku", "en": "1st year film exercise" },
-      "year": 2024
+      "title": {
+        "cz": "The Entrance",
+        "en": "The Entrance"
+      },
+      "desc": {
+        "cz": "Cvičení 1. ročníku",
+        "en": "1st year film exercise"
+      },
+      "year": 2024,
+      "mini": "/portfolio/assets/videos/minis_nahledy/theentrance.mp4"
     }
   ],
   "motion": [
@@ -112,18 +173,32 @@
       "type": "video",
       "src": "/portfolio/assets/videos/arthur_v2.mp4",
       "original": "/portfolio/assets/videos/arthur_original.mp4",
-      "title": { "cz": "Město v lese", "en": "City in the Forest" },
-      "desc": { "cz": "VFX - wire removal, rotoskopie, matte painting, kompozice", "en": "VFX - wire removal, rotoscoping, matte painting, compositing" },
-      "year": 2024
+      "title": {
+        "cz": "Město v lese",
+        "en": "City in the Forest"
+      },
+      "desc": {
+        "cz": "VFX - wire removal, rotoskopie, matte painting, kompozice",
+        "en": "VFX - wire removal, rotoscoping, matte painting, compositing"
+      },
+      "year": 2024,
+      "mini": "/portfolio/assets/videos/minis_nahledy/arthur_v2.mp4"
     },
     {
       "id": "waitomo",
       "category": "motion",
       "type": "video",
       "src": "/portfolio/assets/videos/waitomo.mp4",
-      "title": { "cz": "Waitomo", "en": "Waitomo" },
-      "desc": { "cz": "Animované logo inspirované bioluminiscenčními jeskyněmi Waitomo na Novém Zélandu", "en": "Logo animation inspired by the bioluminescent Waitomo Caves in New Zealand" },
-      "year": 2024
+      "title": {
+        "cz": "Waitomo",
+        "en": "Waitomo"
+      },
+      "desc": {
+        "cz": "Animované logo inspirované bioluminiscenčními jeskyněmi Waitomo na Novém Zélandu",
+        "en": "Logo animation inspired by the bioluminescent Waitomo Caves in New Zealand"
+      },
+      "year": 2024,
+      "mini": "/portfolio/assets/videos/minis_nahledy/waitomo.mp4"
     }
   ]
 }
