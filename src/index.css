@@ -204,7 +204,9 @@ nav::before {
 
 /* ===== SHOWREEL ===== */
 .showreel-section {
-  padding: 120px 0;
+  padding: 120px 40px;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 .section-label {
@@ -213,7 +215,6 @@ nav::before {
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 48px;
-  padding: 0 40px;
 }
 
 .showreel-video {
@@ -604,7 +605,7 @@ footer {
   nav { padding: 20px 24px; }
   .hero-content { padding: 0 24px 60px; }
   .container { padding: 0 24px; }
-  .section-label { padding: 0 24px; }
+  .showreel-section { padding: 80px 24px; }
   .projects-header { padding: 0 24px; flex-direction: column; align-items: flex-start; gap: 24px; }
   .projects-grid { grid-template-columns: 1fr; padding: 0 24px; }
   .about-section { grid-template-columns: 1fr; padding: 80px 24px; gap: 48px; }
