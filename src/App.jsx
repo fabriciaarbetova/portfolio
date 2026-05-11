@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLang } from './context/LangContext';
 import Nav from './components/Nav';
-import HeroCanvas from './components/HeroCanvas';
 import RotatingText from './components/RotatingText';
 import ProjectModal from './components/ProjectModal';
 import projectsData from './projects.json';
@@ -120,7 +119,15 @@ export default function App() {
 
           {/* HERO */}
           <section className="hero">
-            <HeroCanvas />
+            <video
+              className="hero-bg-video"
+              src="/portfolio/assets/videos/hero_bg.webm"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+            <div className="hero-overlay" />
             <div className="hero-content">
               <motion.h1
                 className="hero-name"

@@ -16,10 +16,10 @@ async function runFfmpeg(src, dst) {
     const args = [
       '-y', 
       '-i', src,
-      '-vf', "scale='min(1280,iw)':-2",
+      '-vf', "scale='min(854,iw)':-2",
       '-c:v', 'libx264',
       '-preset', 'fast',
-      '-crf', '28',
+      '-crf', '30',
       '-an', // odstranit audio u nahledovych karet
       dst
     ];
