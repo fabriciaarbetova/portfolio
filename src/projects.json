@@ -9,10 +9,10 @@
         "en": "Waves on Shore"
       },
       "desc": {
-        "cz": "Simulace vlnění a srážky vody na břehu. V galerii si můžete prohlédnout jak finální vyrenderovaný frame, tak i samotný playblast animace.",
-        "en": "Simulation of waves crashing on the shore. The gallery features both the final rendered frame and the raw playblast animation."
+        "cz": "1 — Statický render | 2 — Playblast",
+        "en": "1 — Static render | 2 — Playblast"
       },
-      "year": "2025",
+      "year": "2026",
       "images": [
         "/portfolio/assets/images/dalsi/15_voda na brehu.jpg",
         "/portfolio/assets/videos/vlny_playblast.mp4"
