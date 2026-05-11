@@ -89,12 +89,7 @@ export default function App() {
   const [filter, setFilter] = useState('all');
   const [selected, setSelected] = useState(null);
 
-  const projects = [
-    ...projectsData.simulations,
-    ...projectsData.archviz,
-    ...projectsData.film,
-    ...projectsData.motion,
-  ];
+  const projects = projectsData.projects || [];
 
   const filtered = filter === 'all'
     ? projects

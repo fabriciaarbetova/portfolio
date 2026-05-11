@@ -1,42 +1,54 @@
 {
-  "simulations": [
+  "projects": [
     {
-      "id": "vlna_barel",
-      "type": "gallery",
+      "id": "opensea",
       "category": "simulation",
+      "type": "gallery",
       "title": {
-        "cz": "Uvnitř vlny",
-        "en": "Inside the Barrel"
+        "cz": "Otevřené moře",
+        "en": "Open Sea"
       },
       "desc": {
-        "cz": "1 — Finální render | 2 — Statický render | 3 — Playblast",
-        "en": "1 — Final render | 2 — Static render | 3 — Playblast"
+        "cz": "1 — Finální render | 2 — Playblast",
+        "en": "1 — Final render | 2 — Playblast"
       },
       "year": "2026",
-      "mini": "/portfolio/assets/videos/minis_nahledy/vlna_barel.mp4",
+      "mini": "/portfolio/assets/videos/minis_nahledy/boss_tut_z04_3.mp4",
       "images": [
-        "/portfolio/assets/videos/vlna_barel.mp4",
-        "/portfolio/assets/images/dalsi/01i ale z f puvod vlny test_1.0127.png",
-        "/portfolio/assets/videos/vlna_barel_playblast.mp4"
+        "/portfolio/assets/videos/boss_tut_z04_3.mp4",
+        "/portfolio/assets/videos/opensea_playblast.mp4"
       ]
     },
     {
-      "id": "vlny_na_brehu",
+      "id": "adomcek",
+      "category": "archviz",
       "type": "gallery",
-      "category": "simulation",
+      "images": [
+        "/portfolio/assets/images/adomcek/adomcek_01.jpg",
+        "/portfolio/assets/images/adomcek/adomcek_05.jpg",
+        "/portfolio/assets/images/adomcek/adomcek_02.jpg",
+        "/portfolio/assets/images/adomcek/adomcek_03.jpg",
+        "/portfolio/assets/images/adomcek/adomcek_04.jpg",
+        "/portfolio/assets/images/adomcek/adomcek_06.jpg"
+      ],
+      "wireframes": [
+        "/portfolio/assets/images/adomcek/wireframes/wireframe_13.jpg",
+        "/portfolio/assets/images/adomcek/wireframes/wireframe_01.jpg",
+        "/portfolio/assets/images/adomcek/wireframes/wireframe_02.jpg",
+        "/portfolio/assets/images/adomcek/wireframes/wireframe_05.jpg",
+        "/portfolio/assets/images/adomcek/wireframes/wireframe_06.jpg",
+        "/portfolio/assets/images/adomcek/wireframes/wireframe_10.jpg",
+        "/portfolio/assets/images/adomcek/wireframes/wireframe_12.jpg"
+      ],
       "title": {
-        "cz": "Vlny na břehu",
-        "en": "Waves on Shore"
+        "cz": "Adomček",
+        "en": "A-Frame House"
       },
       "desc": {
-        "cz": "1 — Statický render | 2 — Playblast",
-        "en": "1 — Static render | 2 — Playblast"
+        "cz": "Architektonická vizualizace - exteriér, interiér, wireframy",
+        "en": "Architectural visualization - exterior, interior, wireframes"
       },
-      "year": "2026",
-      "images": [
-        "/portfolio/assets/images/dalsi/15_voda na brehu.jpg",
-        "/portfolio/assets/videos/vlny_playblast.mp4"
-      ]
+      "year": 2025
     },
     {
       "id": "svicka",
@@ -71,6 +83,44 @@
       "mini": "/portfolio/assets/videos/minis_nahledy/hydrant.mp4"
     },
     {
+      "id": "vlny_na_brehu",
+      "type": "gallery",
+      "category": "simulation",
+      "title": {
+        "cz": "Vlny na břehu",
+        "en": "Waves on Shore"
+      },
+      "desc": {
+        "cz": "1 — Statický render | 2 — Playblast",
+        "en": "1 — Static render | 2 — Playblast"
+      },
+      "year": "2026",
+      "images": [
+        "/portfolio/assets/images/dalsi/15_voda na brehu.jpg",
+        "/portfolio/assets/videos/vlny_playblast.mp4"
+      ]
+    },
+    {
+      "id": "vlna_barel",
+      "type": "gallery",
+      "category": "simulation",
+      "title": {
+        "cz": "Uvnitř vlny",
+        "en": "Inside the Barrel"
+      },
+      "desc": {
+        "cz": "1 — Finální render | 2 — Statický render | 3 — Playblast",
+        "en": "1 — Final render | 2 — Static render | 3 — Playblast"
+      },
+      "year": "2026",
+      "mini": "/portfolio/assets/videos/minis_nahledy/vlna_barel.mp4",
+      "images": [
+        "/portfolio/assets/videos/vlna_barel.mp4",
+        "/portfolio/assets/images/dalsi/01i ale z f puvod vlny test_1.0127.png",
+        "/portfolio/assets/videos/vlna_barel_playblast.mp4"
+      ]
+    },
+    {
       "id": "lavalamp",
       "category": "simulation",
       "type": "video",
@@ -103,58 +153,6 @@
       "mini": "/portfolio/assets/videos/minis_nahledy/vyvolavanidemonu_v2.mp4"
     },
     {
-      "id": "opensea",
-      "category": "simulation",
-      "type": "gallery",
-      "title": {
-        "cz": "Otevřené moře",
-        "en": "Open Sea"
-      },
-      "desc": {
-        "cz": "1 — Finální render | 2 — Playblast",
-        "en": "1 — Final render | 2 — Playblast"
-      },
-      "year": "2026",
-      "mini": "/portfolio/assets/videos/minis_nahledy/boss_tut_z04_3.mp4",
-      "images": [
-        "/portfolio/assets/videos/boss_tut_z04_3.mp4",
-        "/portfolio/assets/videos/opensea_playblast.mp4"
-      ]
-    }
-  ],
-  "archviz": [
-    {
-      "id": "adomcek",
-      "category": "archviz",
-      "type": "gallery",
-      "images": [
-        "/portfolio/assets/images/adomcek/adomcek_01.jpg",
-        "/portfolio/assets/images/adomcek/adomcek_05.jpg",
-        "/portfolio/assets/images/adomcek/adomcek_02.jpg",
-        "/portfolio/assets/images/adomcek/adomcek_03.jpg",
-        "/portfolio/assets/images/adomcek/adomcek_04.jpg",
-        "/portfolio/assets/images/adomcek/adomcek_06.jpg"
-      ],
-      "wireframes": [
-        "/portfolio/assets/images/adomcek/wireframes/wireframe_13.jpg",
-        "/portfolio/assets/images/adomcek/wireframes/wireframe_01.jpg",
-        "/portfolio/assets/images/adomcek/wireframes/wireframe_02.jpg",
-        "/portfolio/assets/images/adomcek/wireframes/wireframe_05.jpg",
-        "/portfolio/assets/images/adomcek/wireframes/wireframe_06.jpg",
-        "/portfolio/assets/images/adomcek/wireframes/wireframe_10.jpg",
-        "/portfolio/assets/images/adomcek/wireframes/wireframe_12.jpg"
-      ],
-      "title": {
-        "cz": "Adomček",
-        "en": "A-Frame House"
-      },
-      "desc": {
-        "cz": "Architektonická vizualizace - exteriér, interiér, wireframy",
-        "en": "Architectural visualization - exterior, interior, wireframes"
-      },
-      "year": 2025
-    },
-    {
       "id": "maringotka",
       "category": "archviz",
       "type": "gallery",
@@ -171,9 +169,7 @@
         "en": "Exterior architectural visualization of a caravan"
       },
       "year": 2025
-    }
-  ],
-  "film": [
+    },
     {
       "id": "heroevil",
       "category": "film",
@@ -221,9 +217,7 @@
       },
       "year": 2024,
       "mini": "/portfolio/assets/videos/minis_nahledy/theentrance.mp4"
-    }
-  ],
-  "motion": [
+    },
     {
       "id": "arthur",
       "category": "motion",
