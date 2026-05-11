@@ -109,14 +109,13 @@
         "en": "Inside the Barrel"
       },
       "desc": {
-        "cz": "1 — Finální render | 2 — Statický render | 3 — Playblast",
-        "en": "1 — Final render | 2 — Static render | 3 — Playblast"
+        "cz": "1 — Statický render | 2 — Finální render | 3 — Playblast",
+        "en": "1 — Static render | 2 — Final render | 3 — Playblast"
       },
       "year": "2026",
-      "mini": "/portfolio/assets/videos/minis_nahledy/vlna_barel.mp4",
       "images": [
-        "/portfolio/assets/videos/vlna_barel.mp4",
         "/portfolio/assets/images/dalsi/01i ale z f puvod vlny test_1.0127.png",
+        "/portfolio/assets/videos/vlna_barel.mp4",
         "/portfolio/assets/videos/vlna_barel_playblast.mp4"
       ]
     },
