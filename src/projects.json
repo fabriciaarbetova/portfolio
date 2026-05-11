@@ -63,6 +63,22 @@
       },
       "year": 2025,
       "mini": "/portfolio/assets/videos/minis_nahledy/vyvolavanidemonu_v2.mp4"
+    },
+    {
+      "id": "opensea",
+      "category": "simulation",
+      "type": "video",
+      "src": "/portfolio/assets/videos/boss_tut_z04_3.mp4",
+      "title": {
+        "cz": "Otevřené moře",
+        "en": "Open Sea"
+      },
+      "desc": {
+        "cz": "Simulace dynamiky otevřené vodní hladiny",
+        "en": "Simulation of open water surface dynamics"
+      },
+      "year": 2026,
+      "mini": "/portfolio/assets/videos/minis_nahledy/boss_tut_z04_3.mp4"
     }
   ],
   "archviz": [
