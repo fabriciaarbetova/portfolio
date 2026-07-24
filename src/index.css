@@ -137,6 +137,13 @@ nav::before {
   mix-blend-mode: screen;
 }
 
+@media (max-width: 768px) {
+  .hero-bg-video {
+    mix-blend-mode: normal;
+    opacity: 0.45;
+  }
+}
+
 .hero-overlay {
   position: absolute;
   inset: 0;
