@@ -233,7 +233,7 @@ export default function App() {
           {/* FOOTER */}
           <footer>
             <span className="footer-copy">{t.footer}</span>
-            <span className="footer-copy" style={{ opacity: 0.4 }}>3D · Simulation · Arch Viz</span>
+            <span className="footer-copy" style={{ opacity: 0.4 }}>3D · VFX · Simulation · Arch Viz</span>
           </footer>
 
           {/* MODAL */}
