@@ -115,14 +115,16 @@ export default function App() {
 
           {/* HERO */}
           <section className="hero">
-            <video
+              <video
               className="hero-bg-video"
-              src="/portfolio/assets/videos/hero_bg.webm?v=3"
               autoPlay
               loop
               muted
               playsInline
-            />
+            >
+              <source src="/portfolio/assets/videos/hero_bg.webm?v=3" type="video/webm" />
+              <source src="/portfolio/assets/videos/hero_bg.mp4" type="video/mp4" />
+            </video>
             <div className="hero-overlay" />
             <div className="hero-content">
               <motion.h1
