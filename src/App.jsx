@@ -15,6 +15,12 @@ const fadeUp = {
   }),
 };
 
+function getPosterForVideo(src) {
+  if (!src) return undefined;
+  const filename = src.split('/').pop().replace(/\.(mp4|webm)$/i, '');
+  return `/portfolio/assets/images/posters/${filename}.jpg`;
+}
+
 function Loader({ onDone }) {
   useEffect(() => {
     const timer = setTimeout(onDone, 2400);
@@ -49,20 +55,22 @@ function ProjectCard({ project, onClick, lang, t, index }) {
   const ref = useRef(null);
   const videoRef = useRef(null);
   const inView = useInView(ref);
+  const [isPlaying, setIsPlaying] = useState(false);
   const thumb = project.mini || (project.type === 'video' ? project.src : project.images?.[0]);
   const isVideoThumb = thumb && thumb.match(/\.(mp4|webm)$/i);
+  const poster = isVideoThumb ? getPosterForVideo(thumb) : null;
 
   useEffect(() => {
     if (!isVideoThumb || !videoRef.current) return;
     const vid = videoRef.current;
     vid.defaultMuted = true;
     vid.muted = true;
-    vid.setAttribute('muted', '');
-    vid.setAttribute('playsinline', '');
-    vid.setAttribute('webkit-playsinline', '');
 
     if (inView) {
-      vid.play().catch(() => {});
+      const p = vid.play();
+      if (p !== undefined) {
+        p.catch(() => {});
+      }
     } else {
       vid.pause();
     }
@@ -82,15 +90,44 @@ function ProjectCard({ project, onClick, lang, t, index }) {
       }}
     >
       {isVideoThumb ? (
-        <video
-          ref={videoRef}
-          className="project-card-media"
-          src={thumb}
-          muted
-          loop
-          playsInline
-          preload="metadata"
-        />
+        <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}>
+          {poster && (
+            <img
+              className="project-card-media"
+              src={poster}
+              alt={project.title[lang]}
+              loading="lazy"
+              style={{
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+              }}
+            />
+          )}
+          <video
+            ref={videoRef}
+            className="project-card-media"
+            src={`${thumb}#t=0.001`}
+            poster={poster || undefined}
+            muted
+            loop
+            playsInline
+            webkit-playsinline=""
+            preload="auto"
+            style={{
+              position: 'relative',
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              opacity: isPlaying ? 1 : 0,
+              transition: 'opacity 0.3s ease',
+            }}
+            onPlay={() => setIsPlaying(true)}
+            onPause={() => setIsPlaying(false)}
+          />
+        </div>
       ) : (
         <img className="project-card-media" src={thumb} alt={project.title[lang]} loading="lazy" />
       )}
@@ -109,6 +146,7 @@ export default function App() {
   const [loaded, setLoaded] = useState(false);
   const [filter, setFilter] = useState('all');
   const [selected, setSelected] = useState(null);
+  const [isHeroPlaying, setIsHeroPlaying] = useState(false);
   const heroVideoRef = useRef(null);
 
   useEffect(() => {
@@ -117,9 +155,6 @@ export default function App() {
 
     vid.defaultMuted = true;
     vid.muted = true;
-    vid.setAttribute('muted', '');
-    vid.setAttribute('playsinline', '');
-    vid.setAttribute('webkit-playsinline', '');
 
     const tryPlay = () => {
       const p = vid.play();
@@ -137,6 +172,10 @@ export default function App() {
       if (vid && vid.paused) {
         vid.play().catch(() => {});
       }
+      document.querySelectorAll('video').forEach(v => {
+        v.muted = true;
+        v.play().catch(() => {});
+      });
     };
 
     document.addEventListener('touchstart', unlockHero, { once: true, passive: true });
@@ -163,7 +202,7 @@ export default function App() {
 
   return (
     <>
-      {/* LOADER - kryi hero v pozadi */}
+      {/* LOADER - kryje hero v pozadi */}
       <AnimatePresence>
         {!loaded && <Loader key="loader" onDone={() => setLoaded(true)} />}
       </AnimatePresence>
@@ -173,18 +212,41 @@ export default function App() {
 
       {/* HERO - vzdy v DOM, video se spousti hned pri nacteni stranky (pod loaderem) */}
       <section className="hero">
-        <video
-          ref={heroVideoRef}
-          className="hero-bg-video"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-        >
-          <source src="/portfolio/assets/videos/hero_bg.mp4" type="video/mp4" />
-          <source src="/portfolio/assets/videos/hero_bg.webm" type="video/webm" />
-        </video>
+        <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+          <img
+            src="/portfolio/assets/images/hero_poster.jpg"
+            className="hero-bg-video"
+            alt=""
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
+          />
+          <video
+            ref={heroVideoRef}
+            className="hero-bg-video"
+            src="/portfolio/assets/videos/hero_bg.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            webkit-playsinline=""
+            preload="auto"
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              opacity: isHeroPlaying ? undefined : 0,
+              transition: 'opacity 0.6s ease',
+            }}
+            onPlay={() => setIsHeroPlaying(true)}
+          />
+        </div>
         <div className="hero-overlay" />
         <div className="hero-content">
           <motion.h1
@@ -229,11 +291,13 @@ export default function App() {
             <video
               className="showreel-video"
               src="/portfolio/assets/videos/showreel.mp4"
+              poster="/portfolio/assets/images/posters/showreel.jpg"
               controls
               autoPlay
               muted
               loop
               playsInline
+              webkit-playsinline=""
               preload="metadata"
             />
           </section>
