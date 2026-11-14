@@ -91,12 +91,13 @@ export default function App() {
   const heroVideoRef = useRef(null);
 
   useEffect(() => {
-    if (loaded && heroVideoRef.current) {
-      const vid = heroVideoRef.current;
-      vid.muted = true;
-      vid.play().catch(() => {});
-    }
-  }, [loaded]);
+    const vid = heroVideoRef.current;
+    if (!vid) return;
+    vid.defaultMuted = true;
+    vid.muted = true;
+    vid.load();
+    vid.play().catch(() => {});
+  }, []);
 
   const projects = projectsData.projects || [];
 
@@ -118,23 +119,27 @@ export default function App() {
         {!loaded && <Loader key="loader" onDone={() => setLoaded(true)} />}
       </AnimatePresence>
 
+      {/* HERO VIDEO - vzdy v DOM kvuli iOS Safari autoplay */}
+      <video
+        ref={heroVideoRef}
+        className="hero-bg-video"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        style={{ display: loaded ? undefined : 'none' }}
+      >
+        <source src="/portfolio/assets/videos/hero_bg.mp4" type="video/mp4" />
+        <source src="/portfolio/assets/videos/hero_bg.webm" type="video/webm" />
+      </video>
+
       {loaded && (
         <>
           <Nav />
 
           {/* HERO */}
           <section className="hero">
-              <video
-              ref={heroVideoRef}
-              className="hero-bg-video"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src="/portfolio/assets/videos/hero_bg.webm?v=3" type="video/webm" />
-              <source src="/portfolio/assets/videos/hero_bg.mp4" type="video/mp4" />
-            </video>
             <div className="hero-overlay" />
             <div className="hero-content">
               <motion.h1
