@@ -17,7 +17,7 @@ const fadeUp = {
 
 function Loader({ onDone }) {
   useEffect(() => {
-    const timer = setTimeout(onDone, 2000);
+    const timer = setTimeout(onDone, 2400);
     return () => clearTimeout(timer);
   }, [onDone]);
 
@@ -47,9 +47,26 @@ function useInView(ref) {
 
 function ProjectCard({ project, onClick, lang, t, index }) {
   const ref = useRef(null);
+  const videoRef = useRef(null);
   const inView = useInView(ref);
   const thumb = project.mini || (project.type === 'video' ? project.src : project.images?.[0]);
   const isVideoThumb = thumb && thumb.match(/\.(mp4|webm)$/i);
+
+  useEffect(() => {
+    if (!isVideoThumb || !videoRef.current) return;
+    const vid = videoRef.current;
+    vid.defaultMuted = true;
+    vid.muted = true;
+    vid.setAttribute('muted', '');
+    vid.setAttribute('playsinline', '');
+    vid.setAttribute('webkit-playsinline', '');
+
+    if (inView) {
+      vid.play().catch(() => {});
+    } else {
+      vid.pause();
+    }
+  }, [inView, isVideoThumb]);
 
   return (
     <motion.div
@@ -60,18 +77,22 @@ function ProjectCard({ project, onClick, lang, t, index }) {
       animate={inView ? 'visible' : 'hidden'}
       custom={index * 0.05}
       onClick={() => onClick(project)}
+      onMouseEnter={() => {
+        if (videoRef.current) videoRef.current.play().catch(() => {});
+      }}
     >
       {isVideoThumb ? (
         <video
+          ref={videoRef}
           className="project-card-media"
           src={thumb}
           muted
           loop
           playsInline
-          autoPlay
+          preload="metadata"
         />
       ) : (
-        <img className="project-card-media" src={thumb} alt={project.title[lang]} />
+        <img className="project-card-media" src={thumb} alt={project.title[lang]} loading="lazy" />
       )}
       <div className="project-card-overlay">
         <div className="project-card-info">
@@ -94,31 +115,36 @@ export default function App() {
     const vid = heroVideoRef.current;
     if (!vid) return;
 
-    // iOS Safari vyzaduje nastaveni defaultMuted pres JS
     vid.defaultMuted = true;
     vid.muted = true;
+    vid.setAttribute('muted', '');
+    vid.setAttribute('playsinline', '');
+    vid.setAttribute('webkit-playsinline', '');
 
     const tryPlay = () => {
-      vid.play().catch(() => {});
+      const p = vid.play();
+      if (p !== undefined) {
+        p.catch(() => {});
+      }
     };
 
-    // Zkus hned
     tryPlay();
+    vid.addEventListener('canplay', tryPlay, { once: true });
+    vid.addEventListener('loadeddata', tryPlay, { once: true });
 
-    // iOS unlock: pri prvnim dotyku kdekoliv na strance spust vsechna videa
-    const unlockAll = () => {
-      document.querySelectorAll('video').forEach(v => {
-        v.muted = true;
-        v.play().catch(() => {});
-      });
+    // iOS Safari gesture fallback: unlock if still paused
+    const unlockHero = () => {
+      if (vid && vid.paused) {
+        vid.play().catch(() => {});
+      }
     };
 
-    document.addEventListener('touchstart', unlockAll, { once: true, passive: true });
-    document.addEventListener('touchend', unlockAll, { once: true, passive: true });
+    document.addEventListener('touchstart', unlockHero, { once: true, passive: true });
+    document.addEventListener('touchend', unlockHero, { once: true, passive: true });
 
     return () => {
-      document.removeEventListener('touchstart', unlockAll);
-      document.removeEventListener('touchend', unlockAll);
+      document.removeEventListener('touchstart', unlockHero);
+      document.removeEventListener('touchend', unlockHero);
     };
   }, []);
 
@@ -208,6 +234,7 @@ export default function App() {
               muted
               loop
               playsInline
+              preload="metadata"
             />
           </section>
 
