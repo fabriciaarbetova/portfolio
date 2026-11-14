@@ -88,6 +88,15 @@ export default function App() {
   const [loaded, setLoaded] = useState(false);
   const [filter, setFilter] = useState('all');
   const [selected, setSelected] = useState(null);
+  const heroVideoRef = useRef(null);
+
+  useEffect(() => {
+    if (loaded && heroVideoRef.current) {
+      const vid = heroVideoRef.current;
+      vid.muted = true;
+      vid.play().catch(() => {});
+    }
+  }, [loaded]);
 
   const projects = projectsData.projects || [];
 
@@ -116,6 +125,7 @@ export default function App() {
           {/* HERO */}
           <section className="hero">
               <video
+              ref={heroVideoRef}
               className="hero-bg-video"
               autoPlay
               loop
