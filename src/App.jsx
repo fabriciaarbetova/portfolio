@@ -17,7 +17,7 @@ const fadeUp = {
 
 function Loader({ onDone }) {
   useEffect(() => {
-    const timer = setTimeout(onDone, 1400);
+    const timer = setTimeout(onDone, 2000);
     return () => clearTimeout(timer);
   }, [onDone]);
 
@@ -93,10 +93,33 @@ export default function App() {
   useEffect(() => {
     const vid = heroVideoRef.current;
     if (!vid) return;
+
+    // iOS Safari vyzaduje nastaveni defaultMuted pres JS
     vid.defaultMuted = true;
     vid.muted = true;
-    vid.load();
-    vid.play().catch(() => {});
+
+    const tryPlay = () => {
+      vid.play().catch(() => {});
+    };
+
+    // Zkus hned
+    tryPlay();
+
+    // iOS unlock: pri prvnim dotyku kdekoliv na strance spust vsechna videa
+    const unlockAll = () => {
+      document.querySelectorAll('video').forEach(v => {
+        v.muted = true;
+        v.play().catch(() => {});
+      });
+    };
+
+    document.addEventListener('touchstart', unlockAll, { once: true, passive: true });
+    document.addEventListener('touchend', unlockAll, { once: true, passive: true });
+
+    return () => {
+      document.removeEventListener('touchstart', unlockAll);
+      document.removeEventListener('touchend', unlockAll);
+    };
   }, []);
 
   const projects = projectsData.projects || [];
@@ -112,69 +135,68 @@ export default function App() {
     setSelected(filtered[next]);
   };
 
-
   return (
     <>
+      {/* LOADER - kryi hero v pozadi */}
       <AnimatePresence>
         {!loaded && <Loader key="loader" onDone={() => setLoaded(true)} />}
       </AnimatePresence>
 
-      {/* HERO VIDEO - vzdy v DOM kvuli iOS Safari autoplay */}
-      <video
-        ref={heroVideoRef}
-        className="hero-bg-video"
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        style={{ display: loaded ? undefined : 'none' }}
-      >
-        <source src="/portfolio/assets/videos/hero_bg.mp4" type="video/mp4" />
-        <source src="/portfolio/assets/videos/hero_bg.webm" type="video/webm" />
-      </video>
+      {/* NAV - vzdy v DOM */}
+      <Nav />
 
+      {/* HERO - vzdy v DOM, video se spousti hned pri nacteni stranky (pod loaderem) */}
+      <section className="hero">
+        <video
+          ref={heroVideoRef}
+          className="hero-bg-video"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+        >
+          <source src="/portfolio/assets/videos/hero_bg.mp4" type="video/mp4" />
+          <source src="/portfolio/assets/videos/hero_bg.webm" type="video/webm" />
+        </video>
+        <div className="hero-overlay" />
+        <div className="hero-content">
+          <motion.h1
+            className="hero-name"
+            variants={fadeUp}
+            initial="hidden"
+            animate={loaded ? "visible" : "hidden"}
+            custom={0}
+          >
+            Fabricia<br />{lang === 'cz' ? 'Arbetová' : 'Arbetova'}
+          </motion.h1>
+          <motion.p
+            className="hero-role"
+            variants={fadeUp}
+            initial="hidden"
+            animate={loaded ? "visible" : "hidden"}
+            custom={1}
+          >
+            {t.hero.role}
+          </motion.p>
+          <motion.div
+            className="hero-scroll"
+            variants={fadeUp}
+            initial="hidden"
+            animate={loaded ? "visible" : "hidden"}
+            custom={2}
+            onClick={() => document.getElementById('showreel')?.scrollIntoView({ behavior: 'smooth' })}
+            style={{ cursor: 'pointer' }}
+          >
+            {t.hero.scroll}
+          </motion.div>
+        </div>
+        <RotatingText text="FABRICIA ARBETOVA · 3D ARTIST · VFX · " />
+      </section>
+
+      {/* ZBYTEK STRANKY - az po loaderu */}
       {loaded && (
         <>
-          <Nav />
-
-          {/* HERO */}
-          <section className="hero">
-            <div className="hero-overlay" />
-            <div className="hero-content">
-              <motion.h1
-                className="hero-name"
-                variants={fadeUp}
-                initial="hidden"
-                animate="visible"
-                custom={0}
-              >
-                Fabricia<br />{lang === 'cz' ? 'Arbetová' : 'Arbetova'}
-              </motion.h1>
-              <motion.p
-                className="hero-role"
-                variants={fadeUp}
-                initial="hidden"
-                animate="visible"
-                custom={1}
-              >
-                {t.hero.role}
-              </motion.p>
-              <motion.div
-                className="hero-scroll"
-                variants={fadeUp}
-                initial="hidden"
-                animate="visible"
-                custom={2}
-                onClick={() => document.getElementById('showreel')?.scrollIntoView({ behavior: 'smooth' })}
-                style={{ cursor: 'pointer' }}
-              >
-                {t.hero.scroll}
-              </motion.div>
-            </div>
-            <RotatingText text="FABRICIA ARBETOVA · 3D ARTIST · VFX · " />
-          </section>
-
           {/* SHOWREEL */}
           <section className="showreel-section" id="showreel">
             <div className="section-label">{t.showreel}</div>
